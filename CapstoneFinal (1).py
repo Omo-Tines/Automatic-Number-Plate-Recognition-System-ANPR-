@@ -1,6 +1,4 @@
-#import pytesseract
-#pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
-#print(pytesseract.image_to_string(r'C:\Users\HP\Desktop\download.jfif'))
+#This code is property of Olaseni Towobola Ashesi University
 import cv2
 import imutils
 import numpy as np
@@ -26,22 +24,17 @@ green= LED(17)
 
 red.on()
 
-#sleep(2)#wait 2seconds before changing capturing plate
+sleep(2)#wait 2seconds before changing capturing plate
 
 server=smtplib.SMTP('smtp.gmail.com',587)
 server.starttls()
 server.login("tinesebun@gmail.com","tolusele")
-#img = cv2.imread('licenseplate2.jpg',cv2.IMREAD_COLOR)
+
 camera= PiCamera()
-print('s')
 camera.resolution = (640,480)
-print('o')
 camera.framerate = 30
-print('m')
 rawCapture = PiRGBArray(camera,size=(640,480))#640,480
-print('p')
 for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
-    print('m')
     img = frame.array
     cv2.imshow("Frame",img)
     key = cv2.waitKey(1) & 0xFF
@@ -84,8 +77,6 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
         (bottomx, bottomy) = (np.max(x), np.max(y))
         Cropped = gray[topx:bottomx+1, topy:bottomy+1]
         #Read the number plate
-        #pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
-        #text = pytesseract.image_to_string(r'C:\Users\HP\Desktop\licenseplate2.jpg')
         plate =pytesseract.image_to_string(Cropped,config='--psm 11')
         print("Detcted Number is:",plate)
         print(plate)
@@ -145,61 +136,3 @@ amber.off()
 green.on()
 sleep(3)
 green.off()
-#database connec
-# import pyodbc
-# server = '<server>.database.windows.net'
-# database = '<database>'
-# username = '<username>'
-# password = '{<password>}'   
-#EMAIL PORTION
-# Get email ID and password from user
-#email = input("Enter email ID: ")
-#password = getpass.getpass("Enter password: ")
-
-# Set SMTP host and port
-#if "gmail" in email:
-#  host = "smtp.gmail.com"
-#   port = 587
-#elif "outlook" in email:
-#    host = "smtp-mail.outlook.com"
-#   port = 587
-#else:
-#    print("Invalid email ID, please try again")
-#    exit(0)
-
-# Create SMTPLib object and contact server
-#server = smtplib.SMTP(host, port)
-#check = server.ehlo()
-#if check[0] == 250:
-#    print("Successfully contacted mail server")
-#else:
-#    print("Unable to contact server")
-#    exit(0)
-
-# Start TLS encryption (only to be done if conencting to port 587 i.e. TLS)
-#server.starttls()
-
-# Logging into the server
-#try:
-#    server.login(email, password)
-#    print("Login successful")
-#except smtplib.SMTPAuthenticationError as ex:
-#    print("Exception:", ex)#
-#    exit(0)
-
-# Get email details from user
-#sender_mail = email
-#receiver_email =input("Enter email subject: ")
-#subject = input("Enter email subject: ")
-#content = text #input("Enter email content: ")
-
-# Create email body by merging emails object and content
-#body = "Subject: " + subject + '\n' + content
-
-# Send the mail
-#output = server.sendmail(sender_mail, receiver_email, body)
-#if not len(output):
-#    print("Send mail successfully")
-#else:
-#    print("Unable to send mail, please try again")
-#    exit(0)
