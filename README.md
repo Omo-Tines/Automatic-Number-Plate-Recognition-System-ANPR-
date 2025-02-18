@@ -75,10 +75,6 @@ Contributions are welcome! If you'd like to enhance the ANPR system or fix issue
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📜 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## 📬 Contact
 
 - **GitHub:** [Omo-Tines](https://github.com/Omo-Tines)
@@ -86,4 +82,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - **Email:** olasenitowoboa@gmail.com
 ---
 
-Feel free to customize this template further to align with your project's specifics. Adding detailed explanations, code snippets, and additional resources can make your README more informative and engaging. Let me know if you need assistance with any other projects or sections! 
